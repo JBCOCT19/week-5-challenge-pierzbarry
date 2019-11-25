@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base :: head"></head>
+<body>
+
+<!--Navigation-->
+<nav th:replace="base :: navbar"></nav>
+
+<!--Job Listing Form-->
+<div class="card card-body col-8 mx-auto spaceAbove">
+    <form action="#" th:action="@{/process}" th:object="${job}" method="post" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{imageurl}" name="imageurl" />
+        <div class="form-group">
+            <label for="airline">Author: </label>
+            <input type="text" th:field="*{author}" class="form-control" id="airline" placeholder="Erin Sullivan">
+        </div>
+        <div class="form-group">
+            <label for="number">Title: </label>
+            <input type="text" th:field="*{title}" class="form-control" id="number" placeholder="Sales Manager Adviser - Fulltime">
+        </div>
+        <div class="form-group">
+            <label for="date">Description: </label>
+            <input type="text" th:field="*{description}" class="form-control" id="date" placeholder="In need of Sales Manager Adviser for new Glide Corp startup.">
+        </div>
+        <div class="form-group">
+            <label for="depart">Date: </label>
+            <input type="text" th:field="*{postedDate}" class="form-control" id="depart" placeholder="10/21/20">
+        </div>
+        <div class="form-group">
+            <label for="arrive">Location: </label>
+            <input type="text" th:field="*{location}" class="form-control" id="arrive" placeholder="Washington DC">
+        </div>
+        <div class="form-group">
+            <label for="price">Salary: </label>
+            <input type="text" th:field="*{salary}" class="form-control" id="price" placeholder="$40,000">
+        </div>
+        <div class="form-group">
+            <label for="photo">Image</label>
+            <div th:if="${job.imageurl} !=null">
+                <img th:src="${job.imageurl}" style="height: 150px; width: 150px"/>
+            </div>
+            <input type="file" name="file" th:src="*{imageurl}" class="form-control-file" id="photo">
+        </div>
+        <button type="submit" class="btn btn-secondary mx-auto">Submit Job Listing</button>
+    </form>
+</div>
+
+<!--Footer-->
+<footer th:replace="base :: footer"></footer>
+
+<th:block th:replace="base :: jslinks"></th:block>
+</body>
+</html>

@@ -52,7 +52,7 @@ public class HomeController {
     @RequestMapping("/detail/{id}")
     public String showJob(@PathVariable("id") long id, Model model) {
         model.addAttribute("job", jobRepository.findById(id).get());
-        return "showjob";
+        return "show";
     }
 
     @RequestMapping("/update/{id}")
@@ -65,6 +65,13 @@ public class HomeController {
     public String delJob(@PathVariable("id") long id) {
         jobRepository.deleteById(id);
         return "redirect:/";
+    }
+
+    @PostMapping("/searchlist")
+    public String search(Model model, @RequestParam("searchString") String search){
+        model.addAttribute("jobs", jobRepository.findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCaseOrPostedDateContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrPhoneContainingIgnoreCaseOrLocationContainingIgnoreCaseOrSalaryContainingIgnoreCase(search,
+                search, search, search, search, search, search));
+        return "searchlist";
     }
 }
 

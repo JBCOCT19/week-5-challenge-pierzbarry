@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base :: head"></head>
+<body>
+
+<!--Navigation-->
+<nav th:replace="base :: navbar"></nav>
+
+<div class="card makePretty bg-light mx-auto animated bounceInUp">
+    <div class="card-header dropright">
+        <h3>
+
+            <div class="d-inline float-left">[[${job.title}]]</div>
+
+            <div class="d-inline float-right">
+                [[${job.postedDate}]]
+                <i class="fas fa-image" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>&nbsp&nbsp&nbsp
+                <div class="dropdown-menu">
+                    <div th:if="${job.imageurl} != null">
+                        <img th:src="${job.imageurl}" class="resize">
+                    </div>
+                </div>
+            </div>
+
+        </h3>
+    </div>
+
+    <div class="card-body">
+        <div class="d-inline float-left">
+
+            <p class="card-text">
+                [[${job.description}]]
+                <br/><br/>
+                [[${job.author}]]
+
+                [[${job.location}]]
+            </p>
+            <h5>[[${job.salary}]]</h5>
+        </div>
+
+        <div class="d-inline float-right">
+            <i class="fas fa-cog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>&nbsp&nbsp&nbsp&nbsp
+            <div class="dropdown-menu text-center">
+                <a class="nav-link d-inline" th:href="@{/delete/{id}(id=${job.id})}"><i class="fas fa-trash-alt"></i></a>
+                <a class="nav-link d-inline" th:href="@{/showjob/{id}(id=${job.id})}"><i class="fas fa-search"></i></a>
+                <a class="nav-link d-inline" th:href="@{/update/{id}(id=${job.id})}"><i class="fas fa-edit"></i></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!--Footer-->
+<footer th:replace="base :: footer"></footer>
+
+<!--JavaScript-->
+<script>
+    $('a[data-toggle="tooltip"]').tooltip({
+        animated: 'fade',
+        placement: 'bottom',
+        html: true
+    });
+</script>
+<th:block th:replace="base :: jslinks"></th:block>
+</body>
+</html>

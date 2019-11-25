@@ -6,19 +6,6 @@
 <!--Navigation-->
 <nav th:replace="base :: navbar"></nav>
 
-<!--Image Slider-->
-<div id="slides" class="carousel slide" data-ride="carousel">
-
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="https://i.imgur.com/Bv1uGQj.png">
-<!--            <div class="carousel-caption">-->
-<!--                <h1 class="display-2">Brine</h1>-->
-<!--            </div>-->
-        </div>
-    </div>
-</div>
-
 <!--Loop for Flight Form-->
 <div th:each="job : ${jobs}" class="container spaceAbove">
     <div class="row">
@@ -27,9 +14,9 @@
                 <h3>
 
                     <div class="d-inline float-left">[[${job.title}]]</div>
+                    <div class="d-inline">[[${job.postedDate}]]</div>
 
                     <div class="d-inline float-right">
-                        [[${job.postedDate}]]
                         <i class="fas fa-image" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>&nbsp&nbsp&nbsp
                         <div class="dropdown-menu">
                             <div th:if="${job.imageurl} != null">
@@ -45,17 +32,21 @@
                 <div class="d-inline float-left">
 
                     <p class="card-text">
-                        [[${job.description}]]
-                        <br/><br/>
-                        <h5>[[${job.salary}]]</h5>
-                    <span class="changeColor">[[${job.author}]] | [[${job.location}]] | [[${job.phone}]]</span>
-                    <i class="fas fa-cog float-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>&nbsp&nbsp&nbsp&nbsp
-                            <div class="dropdown-menu text-center">
-                                <a class="nav-link d-inline" th:href="@{/delete/{id}(id=${job.id})}"><i class="fas fa-trash-alt"></i></a>
-                                <a class="nav-link d-inline" th:href="@{/show/{id}(id=${job.id})}"><i class="fas fa-search"></i></a>
-                                <a class="nav-link d-inline" th:href="@{/update/{id}(id=${job.id})}"><i class="fas fa-edit"></i></a>
-                            </div>
+                        [[${job.description}]]<br/>
+                        [[${job.author}]]
+
+                        [[${job.location}]]
                     </p>
+
+                </div>
+
+                <div class="d-inline float-right">
+                    <i class="fas fa-cog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>&nbsp&nbsp&nbsp&nbsp
+                    <div class="dropdown-menu text-center">
+                        <a class="nav-link d-inline" th:href="@{/delete/{id}(id=${job.id})}"><i class="fas fa-trash-alt"></i></a>
+                        <a class="nav-link d-inline" th:href="@{/show/{id}(id=${job.id})}"><i class="fas fa-search"></i></a>
+                        <a class="nav-link d-inline" th:href="@{/update/{id}(id=${job.id})}"><i class="fas fa-edit"></i></a>
+                    </div>
                 </div>
 
             </div>

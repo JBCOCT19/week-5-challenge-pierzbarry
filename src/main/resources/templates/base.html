@@ -3,55 +3,41 @@
 <head th:fragment="head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Glide</title>
+    <title>Chore</title>
     <link rel="icon" href="https://i.imgur.com/LxztaHt.png"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/flightstyle.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/jobstyle.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link th:href="@{/css/waypoints.css}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d0065a9586.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark" th:fragment="navbar">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item active">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle spaceAbove2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Add a New Flight
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="/add">1-Way</a>
-                            <a class="dropdown-item disabled" href="#">Round-trip</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/"><i class="fas fa-plane fa-2x mover"></i></a>
-                </li>
-                <li class="nav-item active">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle spaceAbove2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search for a Flight</button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                                <form class="form-inline" th:action="@{/searchlist}" method="post">
-                                    <input class="form-control" name="searchString" type="search" placeholder="Search" aria-label="Search">
-                                    <button class="btn btn-outline-success my-2 my-sm-0 mx-auto" type="submit">Search</button>
-                                </form>
-                            </a>
-                        </div>
-                    </div>
-                </li>
 
-            </ul>
-        </div>
+<nav class="navbar navbar-expand-md navbar-default sticky-top" th:fragment="navbar">
+    <a class="intro" href="/">Chore</a>
+    <i class="fas fa-broom fa-3x mover"></i>
+
+    <a class="nav-link changeLink lowish" href="/add">Add a Job Listing</a>
+
+    <div class="navbar-nav ml-auto">
+        <form class="form-inline my-2 my-lg-0 lowish" th:action="@{/searchlist}" method="post">
+            <input class="form-control mr-sm-2" name="searchString" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
     </div>
 </nav>
 
+<!--Footer-->
+<footer th:fragment="footer">
+    <div class="container-fluid border-top spaceAbove">
+        <div class="row">
+            <div class="mx-auto paddingTop paddingBottom">
+                <h5>&copy; Chore 2019</h5>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
 <th:block th:fragment="jslinks">

@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base :: head"></head>
 <body>
 
+<!--Navigation-->
+<nav th:replace="base :: navbar"></nav>
+
+
+
+<!--JavaScript-->
+<script>
+    $('a[data-toggle="tooltip"]').tooltip({
+        animated: 'fade',
+        placement: 'bottom',
+        html: true
+    });
+</script>
+<th:block th:replace="base :: jslinks"></th:block>
+</body>
 </body>
 </html>

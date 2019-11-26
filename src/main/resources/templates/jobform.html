@@ -11,32 +11,45 @@
     <form action="#" th:action="@{/process}" th:object="${job}" method="post" enctype="multipart/form-data">
         <input type="hidden" th:field="*{id}" />
         <input type="hidden" th:field="*{imageurl}" name="imageurl" />
-        <div class="form-group">
+
+        <div class="form-row">
+        <div class="form-group col-md-6">
             <label for="airline">Author: </label>
             <input type="text" th:field="*{author}" class="form-control" id="airline" placeholder="Erin Sullivan">
         </div>
+        <div class="form-group col-md-6">
+            <label for="phone">Phone Number: </label>
+            <input type="text" th:field="*{phone}" class="form-control" id="phone" placeholder="301-222-0130">
+        </div>
+        </div><br/>
+
         <div class="form-group">
             <label for="number">Title: </label>
             <input type="text" th:field="*{title}" class="form-control" id="number" placeholder="Sales Manager Adviser - Fulltime">
-        </div>
+        </div><br/>
+
         <div class="form-group">
             <label for="date">Description: </label>
-            <input type="text" th:field="*{description}" class="form-control" id="date" placeholder="In need of Sales Manager Adviser for new Glide Corp startup.">
-        </div>
-        <div class="form-group">
+            <textarea rows="3" th:field="*{description}" class="form-control" id="date" placeholder="In need of Sales Manager Adviser for new Glide Corp startup."></textarea>
+        </div><br/>
+
+        <div class="form-row">
+        <div class="form-group col-md-4">
             <label for="depart">Date: </label>
             <input type="text" th:field="*{postedDate}" class="form-control" id="depart" placeholder="10/21/20">
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-4">
             <label for="arrive">Location: </label>
             <input type="text" th:field="*{location}" class="form-control" id="arrive" placeholder="Washington DC">
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-4">
             <label for="price">Salary: </label>
             <input type="text" th:field="*{salary}" class="form-control" id="price" placeholder="$40,000">
         </div>
+        </div><br/>
+
         <div class="form-group">
-            <label for="photo">Image</label>
+            <label for="photo">Image: </label>
             <div th:if="${job.imageurl} !=null">
                 <img th:src="${job.imageurl}" style="height: 150px; width: 150px"/>
             </div>

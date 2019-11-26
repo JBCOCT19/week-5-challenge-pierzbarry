@@ -65,7 +65,7 @@ body {
    float: right !important;
 }
 .spaceAbove {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 .navbar-default {
     background-color: #f0f1f2 !important;
@@ -137,6 +137,12 @@ footer {
     font-weight: 800 !important;
     color: white;
     background-color: #494f81;
+}
+form {
+    font-family: 'Open Sans', sans-serif;
+    font-size: medium;
+    font-weight: 800 !important;
+    color: dimgrey;
 }
 .card-text {
     margin: 0;

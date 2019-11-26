@@ -5,6 +5,7 @@
 
 <!--Navigation-->
 <nav th:replace="base :: navbar"></nav>
+<br/>
 
 <div class="card makePretty bg-light mx-auto animated bounceInUp">
     <div class="card-header dropright">
@@ -31,26 +32,19 @@
             <p class="card-text">
                 [[${job.description}]]
                 <br/><br/>
-                [[${job.author}]]
-
-                [[${job.location}]]
-            </p>
             <h5>[[${job.salary}]]</h5>
-        </div>
-
-        <div class="d-inline float-right">
-            <i class="fas fa-cog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>&nbsp&nbsp&nbsp&nbsp
+            <span class="changeColor">[[${job.author}]] | [[${job.location}]] | [[${job.phone}]]</span>
+            <i class="fas fa-cog float-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>&nbsp&nbsp&nbsp&nbsp
             <div class="dropdown-menu text-center">
                 <a class="nav-link d-inline" th:href="@{/delete/{id}(id=${job.id})}"><i class="fas fa-trash-alt"></i></a>
-                <a class="nav-link d-inline" th:href="@{/showjob/{id}(id=${job.id})}"><i class="fas fa-search"></i></a>
+                <a class="nav-link d-inline" th:href="@{/show/{id}(id=${job.id})}"><i class="fas fa-search"></i></a>
                 <a class="nav-link d-inline" th:href="@{/update/{id}(id=${job.id})}"><i class="fas fa-edit"></i></a>
             </div>
+            </p>
         </div>
 
     </div>
 </div>
-
-
 
 <!--Footer-->
 <footer th:replace="base :: footer"></footer>

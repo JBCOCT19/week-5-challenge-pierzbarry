@@ -49,7 +49,7 @@ public class HomeController {
 
     }
 
-    @RequestMapping("/detail/{id}")
+    @RequestMapping("/show/{id}")
     public String showJob(@PathVariable("id") long id, Model model) {
         model.addAttribute("job", jobRepository.findById(id).get());
         return "show";

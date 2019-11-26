@@ -8,7 +8,10 @@ html, body {
     width: 100%;
 }
 body {
-    background: #f9f9fb !important;
+    background-image: url(https://i.imgur.com/nMXTMdn.png), url(https://i.imgur.com/kyQV3Uu.png), url(https://i.imgur.com/mXdnYqW.png);
+    background-repeat: no-repeat, no-repeat, repeat;
+    background-position: bottom left, bottom right 10px, center;
+    background-size: 170px 270px, 160px 270px, 100% 100%;
 }
 .btn {
     font-family: 'Open Sans', sans-serif !important;
@@ -24,6 +27,7 @@ body {
     color: #3a3c4f;
 }
 .fa-broom {
+
     padding: 1rem;
     color: #494f81;
 }
@@ -61,7 +65,7 @@ body {
    float: right !important;
 }
 .spaceAbove {
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 .navbar-default {
     background-color: #f0f1f2 !important;

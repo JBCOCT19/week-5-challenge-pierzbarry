@@ -6,18 +6,8 @@
 <!--Navigation-->
 <nav th:replace="base :: navbar"></nav>
 
-<!--Image Slider-->
-<div id="slides" class="carousel slide" data-ride="carousel">
-
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="https://i.imgur.com/Bv1uGQj.png">
-<!--            <div class="carousel-caption">-->
-<!--                <h1 class="display-2">Brine</h1>-->
-<!--            </div>-->
-        </div>
-    </div>
-</div>
+<!--Carousel-->
+<nav th:replace="base :: carousel"></nav>
 
 <!--Loop for Flight Form-->
 <div th:each="job : ${jobs}" class="container spaceAbove">
